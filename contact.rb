@@ -12,8 +12,8 @@ def initialize(first_name, last_name, email, note = "N/A")
      @@next_id= @@next_id+1
   end
 
-def self.create(first_name, last_name, email)
-      new_contact = Contact.new(first_name, last_name, email)
+def self.create(first_name, last_name, email, note)
+      new_contact = Contact.new(first_name, last_name, email, note)
       @@contacts << new_contact
       new_contact
 end
@@ -48,7 +48,7 @@ end
 end
 end
 
-def self.find_by
+def self.find_by(attribute, value)
  @@contacts.each do |contact|
    if attribute == 'first_name' && contact.first_name == value
       return contact
