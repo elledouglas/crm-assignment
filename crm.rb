@@ -48,7 +48,12 @@ class CRM
     print 'Enter a Note: '
     notes = gets.chomp
 
-    Contact.create(first_name, last_name, email, notes)
+    Contact.create(
+    first_name: first_name,
+    last_name: last_name,
+    email: email,
+    note: note 
+    )
   end
 
   def modify_existing_contact
@@ -89,3 +94,7 @@ puts list = CRM.new("lol")
 puts list.add_new_contact
 puts list.display_all_contacts
 puts list.delete_contact
+
+at_exit do
+  ActiveRecord::Base.connection.close
+end
